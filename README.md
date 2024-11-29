@@ -1,3 +1,130 @@
+# Compiler Project
+
+This project implements a compiler for a custom programming language, following the principles of lexical analysis, syntax analysis, intermediate code generation (LLVM), and target code generation (MIPS). The compiler processes source code, checks for syntax errors, and generates both intermediate and target code. It also includes error handling and various optimization techniques.
+
+## Introduction
+
+The compiler project is designed to take source code written in a custom programming language and translate it into MIPS assembly code. The project involves the design and implementation of several core components, including:
+
+- **Lexical Analyzer (Tokenizer)**: Identifies tokens such as keywords, operators, and variables.
+- **Syntax Analyzer (Parser)**: Analyzes the tokenized input and constructs an abstract syntax tree (AST).
+- **Intermediate Code Generator**: Generates LLVM intermediate code that represents the logical operations of the source code.
+- **Target Code Generator**: Translates the LLVM intermediate code into MIPS assembly language.
+
+This project adheres to a set of defined grammar and error handling rules.
+
+## Project Overview
+
+### Key Components
+
+1. **Lexical Analysis**: The lexical analyzer reads the source code and produces tokens representing the basic syntactic elements. Invalid characters or patterns are flagged as lexical errors.
+2. **Syntax Analysis**: The syntax analyzer constructs an Abstract Syntax Tree (AST) by parsing the token stream according to the predefined grammar rules. Syntax errors are detected and reported.
+3. **Code Generation**: After successful parsing, the intermediate code is generated in LLVM format. The intermediate code is then translated into target MIPS assembly code.
+4. **Error Handling**: The compiler includes mechanisms for handling syntax and lexical errors, with detailed error messages and recovery strategies.
+
+### Compiler Workflow
+
+- **Input**: The compiler takes a source code file (`testfile.txt`) as input.
+
+- Output
+
+  : The output consists of:
+
+  - `llvm_ir.txt`: LLVM intermediate code.
+  - `mips.txt`: MIPS assembly code.
+  - `error.txt`: Error messages, if any.
+
+### Key Features
+
+- **Lexical Analysis**: Identifies keywords, operators, and variables.
+- **Syntax Analysis**: Builds a syntax tree based on the language grammar.
+- **LLVM Intermediate Code Generation**: Generates an intermediate representation of the code.
+- **MIPS Code Generation**: Produces executable MIPS assembly code.
+
+## Installation
+
+1. Clone the repository:
+
+   ```
+   git clone git@github.com:LeostarR/Compiling-Techniques.git
+   cd Compiling-Techniques
+   ```
+
+2. Make sure you have Java installed (JDK 8 or higher is recommended). You can check the installation by running:
+
+   ```
+   java -version
+   ```
+
+3. Compile the source files using the following command:
+
+   ```
+   javac -d bin src/*.java
+   ```
+
+4. After compilation, run the compiler:
+
+   ```
+   java -cp bin Compiler
+   ```
+
+## Usage
+
+1. Place your source code in the `testfile.txt` file. Ensure the content adheres to the grammar described in `./requirements for compliers.pdf`. If there are syntax errors, they must be handled as described in `./requirements for error processing.pdf`.
+
+2. Launch the IDE and run the `Compiler.java` class located in `./src/`.
+
+3. If the source code has no errors, the compiler will generate two output files:
+
+   - `llvm_ir.txt`: Contains LLVM intermediate code.
+   - `mips.txt`: Contains MIPS assembly code.
+
+   In case of syntax errors, the error messages will be output to `error.txt`.
+
+## Project Structure
+
+```
+Compiling-Techniques/
+│
+├── src/                   # Source code files
+│   ├── Compiler.java      # Main entry point for the compiler
+│   ├── LexicalTools/      # Lexical analysis components
+│   ├── GrammaticalTools/  # Syntax analysis components
+│   ├── SymbolTools/       # Symbol table and error handling components
+│   ├── IRTools_llvm/      # LLVM intermediate code generation
+│   └── MIPSTools/         # MIPS assembly code generation
+├── data/                  # Input and output files
+│   ├── testfile.txt       # Input source code file
+│   ├── llvm_ir.txt        # LLVM intermediate code output
+│   ├── mips.txt           # MIPS assembly code output
+│   └── error.txt          # Error messages
+└── README.md              # Project documentation
+```
+
+## Contributions
+
+This project is open to contributions. To contribute, follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your changes.
+3. Submit a pull request with a detailed description of your changes.
+
+## Licenses
+
+This project is licensed under the MIT License.
+
+## Acknowledgements
+
+- The compiler design is based on the principles of **PL0-Compiler**.
+- Thanks to the contributors and educators who helped with the development and testing of the compiler.
+- Special thanks to the professors who provided the grammar and error handling guidelines in `./requirements for compliers.pdf` and `./requirements for error processing.pdf`.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Chinese version| 中文:
+
+# 中文版说明
+
 ## 如何使用
 
 1. 文件`testfile.txt`是被编译的源代码，请保证文件内容符合规定的文法（文法见`./2023编译实验文法说明.pdf`），如果有错误也请保证在课程要求的错误处理（`./错误处理要求.pdf`）范围内
